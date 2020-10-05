@@ -1,0 +1,19 @@
+%%[
+/*
+ *  bundle created based on sfmc-lib.json for 'lib.numberToLocaleString'
+ *  template: n/a
+ *  @author: joern.berkefeld@gmail.com
+ *  @created: 2020-10-05 19:23:34 GMT
+ *  @path: 
+ */
+]%%
+
+
+<!-- *** SERVER *** -->
+
+<!-- *** file: src/lib.numberToLocaleString.ssjs *** -->
+<script runat="server" executioncontexttype="get">
+Platform.Load("core", "1.1.1");
+ function numberToLocaleString(number, maxDecimals, locale) { var transformForLocale = { da: 'dotThousCommaDec', 'de-AT': 'dotThousCommaDec', 'de-BE': 'dotThousCommaDec', 'de-CH': 'apostrophThousDotDec', 'de-DE': 'dotThousCommaDec', 'de-LI': 'apostrophThousDotDec', de: 'dotThousCommaDec', en: 'commaThousDotDec', fr: 'spaceThousCommaDec', hu: 'spaceThousCommaDec', it: 'dotThousCommaDec', nb: 'spaceThousCommaDec', ro: 'dotThousCommaDec', sv: 'spaceThousCommaDec' }; var combinations = { dotThousCommaDec: ['.', ','], apostrophThousDotDec: ['’', '.'], commaThousDotDec: [',', '.'], spaceThousCommaDec: [' ', ','] }; var options; var service = constructor(number, maxDecimals, locale); return service; function constructor(number, maxDecimals, locale) { if ((!maxDecimals && maxDecimals !== 0) || maxDecimals < 0) { maxDecimals = 2; } if (!locale) { Write('locale not set'); } if (!transformForLocale[locale]) { locale = locale.split('-')[0]; } if (!transformForLocale[locale]) { Write('could not find locale'); } options = combinations[transformForLocale[locale]]; var thousandSeparator = options[0]; var decimalSeparator = options[1]; var sNum = Stringify(number); var numParts = sNum.split('.'); if (numParts.length === 1) { numParts[1] = ''; } var decimalsLength = numParts[1].length; if (maxDecimals && decimalsLength > maxDecimals) { numParts[1] = Substring(numParts[1], 0, maxDecimals); } else if (maxDecimals && decimalsLength < maxDecimals) { for (var j = decimalsLength; j < maxDecimals; j++) { numParts[1] += '0'; } } var wholeNumber = null; var i; for (i = numParts[0].length - 3; i >= 0; i = i - 3) { if (wholeNumber != null) { wholeNumber = Substring(numParts[0], i, 3) + thousandSeparator + wholeNumber; } else { wholeNumber = Substring(numParts[0], i, 3); } } if (i < 0) { i += 3; } if (i != 0) { if (wholeNumber != null) { wholeNumber = Substring(numParts[0], 0, i) + thousandSeparator + wholeNumber; } else { wholeNumber = Substring(numParts[0], 0, i); } } numParts[0] = wholeNumber; if (maxDecimals !== 0) { sNum = numParts.join(decimalSeparator); } else { sNum = numParts[0]; } return sNum; }
+}
+</script>

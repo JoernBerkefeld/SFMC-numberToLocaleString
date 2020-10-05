@@ -1,0 +1,25 @@
+{
+    "name": "number-to-locale-string",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib.numberToLocaleString.ssjs",
+    "scripts": {
+        "upgrade": "npm-check --update"
+    },
+    "author": "Jörn Berkefeld <joern.berkefeld@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JoernBerkefeld/SFMC-numberToLocaleString/issues"
+    },
+    "homepage": "https://github.com/JoernBerkefeld/SFMC-numberToLocaleString#readme",
+    "devDependencies": {
+        "eslint": "^7.10.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-config-ssjs": "^1.1.11",
+        "eslint-plugin-jsdoc": "^30.6.3",
+        "eslint-plugin-prettier": "^3.1.4",
+        "npm-check": "^5.9.2",
+        "prettier": "^2.1.2",
+        "sfmc-boilerplate": "^1.2.6"
+    }
+}

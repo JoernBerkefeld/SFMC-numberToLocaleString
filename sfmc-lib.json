@@ -1,0 +1,17 @@
+{
+    "name": "lib.numberToLocaleString",
+    "author": "joern.berkefeld@gmail.com",
+    "server": {
+        "coreVersion": "1.1.1",
+        "scriptAttributes": {
+            "executioncontexttype": "get"
+        },
+        "dependencies": {
+            "other": [],
+            "ssjs": []
+        },
+        "src": ["lib.numberToLocaleString.ssjs"]
+    },
+    "public": [],
+    "dest": ["lib.numberToLocaleString.min.html"]
+}
